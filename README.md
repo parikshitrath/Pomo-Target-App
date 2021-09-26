@@ -9,5 +9,5 @@ npm install
 # Now start the server by typing the following command
 
 ```
-node run start(in VScode terminal) |or| nodemon app.js (int git bash/ cmd)
+npm run start(in VScode terminal) |or| nodemon app.js (int git bash/ cmd)
 ```
