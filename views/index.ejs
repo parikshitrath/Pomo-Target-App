@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Todo App</title> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="icon" href="/static/audio and images/fav.ico" type="image/x-icon">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/static/style/style.css" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4d74d8d27b.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+
+    <title>Pomo-Target App</title>
+</head>
+
+<body onload="template()">
+
+    <!-- Heading -->
+    <h1 class="text-center my-5 heading">The Pomo-Target App</h1>
+
+    <img class="pomodoro-image" src="/static/audio and images/pomodoroTimer.png" alt="Pomodoro  image">
+
+    <div class="container" id="sel">
+        <!-- input number of sessions -->
+        <div class="form-group" id="input_div">
+            <label for="session" id="session">Number of Session :- &nbsp;</label>
+            <input type="number" id="session_count" placeholder="Enter Number of Sessions">
+
+        </div>
+
+        <!-- Main Timer -->
+        <div class="container timer">
+            <div class="row">
+                <div class="col-5">
+                    <h4 id="minutes"></h4>
+                </div>
+                <div class="col-2">
+                    <h4>:</h4>
+                </div>
+                <div class="col-5">
+                    <h4 id="seconds"></h4>
+                </div>
+            </div>
+        </div>
+
+        <div id="sel2">
+            <h3 id="done" class="text-center my-5">Click on <button class="btn"
+                    style="background-color: #272343; border: 0 0 0 0; padding: 0 0 0 0;"><i
+                        class="fas fa-play fa-2x"></i></button> to Start Pomodoro App</h3>
+            <h4 id="comp" class="text-center my-5"></h4>
+        </div>
+
+        <!-- Start and Reset Buttons -->
+        <!-- we are making start and reset at center usning bootstrap and main timer using css to show how to do it using both -->
+        <div class="container d-flex justify-content-center align-item-center my-5">
+
+            <button class="btn" onclick="start()"><i class="fas fa-play fa-2x"></i></button>
+            <a href="#" onClick="window.location.reload();"><i class="fas fa-redo-alt fa-2x"></i></a>
+            <!-- fa-2x doubles the icon size and is a prop. of font.awesome -->
+
+        </div>
+
+    </div>
+
+
+
+    <a class="text-center my-5 headingxyz" style="margin: 0 30% 0 43%;" href="/">Set Targets</a>
+
+    <div class="container mt-5">
+        <form action="/add/todo" method="POST" class="d-flex">
+            <input type="text" name="todo" class="form-control inphei" placeholder="Enter Todo">
+            <input type="submit" value="Add Todo" class="btn btn-md btn-primary mx-2 inphei">
+        </form>
+
+
+        <ul class="list-group my-5 ulclass">
+            <% todo.forEach(todos=> { %>
+                <li class="list-group-item rowhei">
+                    <%= todos.todo %> <a href="/delete/todo/<%= todos._id %>"><i class="material-icons w3-xlarge">delete</i></a>
+                </li>
+
+            <% }) %>
+
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script src="/static/scripts/main.js"></script>
+
+</body>
+
+</html>
